@@ -49,7 +49,7 @@ Add `hugo-discaptive` module as a dependency of your site:
 
 Copy the content of `exampleSite` at the root of your project:
 
-    cp -r themes/hugo-discaptive/exampleSite/* . -iv
+    cp -r themes/hugo-discaptive/exampleSite/* .
 
 If you installed `hugo-discaptive` as hugo module, set your theme in your config file (hugo.toml):
 
