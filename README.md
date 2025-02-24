@@ -34,7 +34,7 @@ Initialize your site as hugo module:
 
     $ hugo mod init github.com/USERNAME/SITENAME
 
-Add Beautifulhugo module as a dependency of your site:
+Add `hugo-discaptive` module as a dependency of your site:
 
     $ hugo mod get github.com/discaptive/hugo-discaptive
 
