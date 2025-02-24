@@ -54,7 +54,7 @@ Copy the content of `exampleSite` at the root of your project:
 If you installed `hugo-discaptive` as hugo module, set your theme in your config file (hugo.toml):
 
     [[module.imports]]
-      path = "github.com/halogenica/beautifulhugo"
+      path = "github.com/discaptive/hugo-discaptive"
 
 Start Hugo:
 
