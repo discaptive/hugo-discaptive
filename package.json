@@ -1,0 +1,17 @@
+{
+  "name": "hugo-discaptive",
+  "version": "1.0.0",
+  "description": "Hugo Discaptive Theme",
+  "scripts": {
+    "build": "npx @tailwindcss/cli -i ./assets/css/input.css -o ./assets/css/output.css --minify",
+    "watch": "npx @tailwindcss/cli -i ./assets/css/input.css -o ./static/css/output.css --watch"
+  },
+  "author": "Discaptive",
+  "license": "ISC",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.0.8",
+    "@tailwindcss/typography": "^0.5.16",
+    "prettier-plugin-go-template": "^0.0.15",
+    "tailwindcss": "^4.0.8"
+  }
+}

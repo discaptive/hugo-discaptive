@@ -1,0 +1,31 @@
+{{ $title := printf "%s | %s" .Title site.Title | default site.Title }}
+{{ $description := .Summary | default .Content }}
+{{ $image := printf "%s%s" .Site.BaseURL "images/og-image.png" }}
+
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="index, follow" />
+<meta
+  name="googlebot"
+  content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"
+/>
+
+<meta name="description" content="{{ $description }}" />
+
+<!-- OpenGraph -->
+<meta property="og:title" content="{{ $title }}" />
+<meta property="og:description" content="{{ $description }}" />
+<meta property="og:url" content="{{ .Permalink }}" />
+<meta property="og:site_name" content="{{ site.Title }}" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="{{ $image }}" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{ $title }}" />
+<meta name="twitter:description" content="{{ $description }}" />
+<meta name="twitter:image" content="{{ $image }}" />
+
+<title>{{ $title }}</title>
+{{ partialCached "head/css.html" . }}

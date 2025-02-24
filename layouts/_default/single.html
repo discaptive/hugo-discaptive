@@ -1,0 +1,154 @@
+{{ define "main" }}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "{{ .Title }}",
+      "datePublished": "{{ .Date | time.Format "2006-01-02T15:04:05-07:00" }}",
+      "dateModified": "{{ .Date | time.Format "2006-01-02T15:04:05-07:00" }}",
+      "description": "{{ .Summary | default .Content }}",
+      "image": "/images/og-image.png",
+      "url": "{{ .Permalink }}",
+      "author": [{ "@type": "Person", "name": "{{ .Site.Params.username }}" }]
+    }
+  </script>
+  <section class="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
+    <article>
+      <div class="xl:divide-y xl:divide-gray-200">
+        <header class="pt-6 xl:pb-6">
+          <div class="space-y-1 text-center">
+            <dl class="space-y-10">
+              <div>
+                <dt class="sr-only">Published on</dt>
+                <dd class="text-base font-medium leading-6 text-gray-500">
+                  {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+                  {{ $dateHuman := .Date | time.Format ":date_full" }}
+                  <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+                </dd>
+              </div>
+            </dl>
+            <div>
+              <h1
+                class="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14"
+              >
+                <div>{{ .Title }}</div>
+              </h1>
+            </div>
+          </div>
+        </header>
+
+        <div
+          class="grid-rows-[auto_1fr] divide-y divide-gray-200 pb-8 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0"
+        >
+          <dl class="pb-10 pt-6 xl:border-b xl:border-gray-200 xl:pt-11">
+            <dt class="sr-only">Authors</dt>
+            <dd>
+              <ul
+                class="flex flex-wrap justify-center gap-4 sm:space-x-12 xl:block xl:space-x-0 xl:space-y-8"
+              >
+                <li class="flex items-center space-x-2">
+                  <img
+                    src="{{ .Site.Params.github }}.png"
+                    class="rounded-full"
+                    width="38"
+                    height="38"
+                    alt="Profile Image"
+                    loading="lazy"
+                  />
+                  <dl class="whitespace-nowrap text-sm font-medium leading-5">
+                    <dt class="sr-only">Name</dt>
+                    <dd class="text-gray-900">{{ .Site.Params.username }}</dd>
+                  </dl>
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <div
+            class="divide-y divide-gray-200 xl:col-span-3 xl:row-span-2 xl:pb-0"
+          >
+            <div class="prose max-w-none pb-8 pt-10">
+              <details open>
+                <summary class="ml-6 pb-2 pt-2 text-xl font-bold">
+                  <span>Table of Contents</span>
+                </summary>
+
+                <nav class="ml-6">
+                  {{- range .Fragments.Headings }}
+                    <ul>
+                      {{- range .Headings }}
+                        <li><a href="#{{ anchorize .ID }}">{{ .Title }}</a></li>
+                        {{- if .Headings }}
+                          <ul>
+                            {{- range .Headings }}
+                              <li>
+                                <a href="#{{ anchorize .ID }}">{{ .Title }}</a>
+                              </li>
+                            {{- end }}
+                          </ul>
+                        {{- end }}
+                      {{- end }}
+                    </ul>
+                  {{- end }}
+                </nav>
+              </details>
+
+              {{ .Content }}
+            </div>
+
+            {{- if isset .Site.Params "giscus" -}}
+              <div class="py-6 text-sm text-gray-700">
+                <script
+                  src="https://giscus.app/client.js"
+                  data-repo="{{ .Site.Params.giscus.repo }}"
+                  data-repo-id="{{ .Site.Params.giscus.repoId }}"
+                  data-category="{{ .Site.Params.giscus.category }}"
+                  data-category-id="{{ .Site.Params.giscus.categoryId }}"
+                  data-mapping="{{ .Site.Params.giscus.mapping }}"
+                  data-strict="0"
+                  data-reactions-enabled="{{ .Site.Params.giscus.reactionsEnabled }}"
+                  data-emit-metadata="0"
+                  data-input-position="{{ .Site.Params.giscus.inputPosition }}"
+                  data-theme="{{ .Site.Params.giscus.theme }}"
+                  data-lang="{{ .Site.Params.giscus.lang }}"
+                  crossorigin="anonymous"
+                  async
+                ></script>
+              </div>
+            {{ end }}
+          </div>
+
+          <footer>
+            <div
+              class="divide-gray-200 text-sm font-medium leading-5 xl:col-start-1 xl:row-start-2 xl:divide-y"
+            >
+              <div class="py-4 xl:py-8">
+                <h2 class="text-xs uppercase tracking-wide text-gray-500">
+                  Tags
+                </h2>
+                <div class="flex flex-wrap">
+                  {{ range .Params.tags }}
+                    <a
+                      href="/tags/{{ . | urlize }}"
+                      class="mr-3 text-sm font-medium uppercase text-indigo-500 hover:text-indigo-600"
+                      >{{ . }}</a
+                    >
+                  {{ end }}
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-4 xl:pt-8">
+              <a
+                class="text-indigo-500 hover:text-indigo-600"
+                aria-label="Back to the list"
+                href="/"
+                >← Back to the list</a
+              >
+            </div>
+          </footer>
+        </div>
+      </div>
+    </article>
+  </section>
+{{ end }}

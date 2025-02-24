@@ -1,0 +1,25 @@
+{{ define "main" }}
+  <div class="mx-auto max-w-4xl px-4 sm:px-6 xl:px-0">
+    <div class="space-y-8 pb-12 pt-16">
+      <div class="space-y-2">
+        <h1 class="text-3xl font-bold text-gray-900 sm:text-4xl uppercase">
+          <span>{{ .Title }}</span>
+        </h1>
+      </div>
+
+      <div class="flex flex-col gap-8 md:flex-row">
+        <aside class="hidden md:block md:w-64">
+          {{ partial "sidebar.html" . }}
+        </aside>
+
+        <div class="min-w-0 flex-1">
+          <ul class="divide-y divide-gray-200">
+            {{ range .Pages }}
+              {{ partial "post-summary.html" . }}
+            {{ end }}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+{{ end }}

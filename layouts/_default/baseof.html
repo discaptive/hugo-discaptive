@@ -1,0 +1,23 @@
+<!doctype html>
+<html
+  lang="{{ site.Language.LanguageCode }}"
+  dir="{{ or site.Language.LanguageDirection `ltr` }}"
+  class="scroll-smooth"
+>
+  <head>
+    {{ partial "head.html" . }}
+  </head>
+  <body class="bg-white text-black antialiased">
+    <section class="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
+      <div class="flex h-screen flex-col justify-between font-sans">
+        <header
+          class="flex items-center w-full bg-white justify-between py-10 sticky top-0 z-50"
+        >
+          {{ partial "header.html" . }}
+        </header>
+        <main class="mb-auto">{{ block "main" . }}{{ end }}</main>
+        <footer>{{ partial "footer.html" . }}</footer>
+      </div>
+    </section>
+  </body>
+</html>

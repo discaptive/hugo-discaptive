@@ -1,0 +1,93 @@
+<nav class="flex items-center justify-between py-8">
+  {{ if .Paginator.HasPrev }}
+    <a
+      class="group flex items-center text-sm text-gray-600 transition-colors hover:text-gray-900"
+      href="{{ .Paginator.Prev.URL }}"
+      rel="prev"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-0.5"
+      >
+        <path d="m12 19-7-7 7-7"></path>
+        <path d="M19 12H5"></path></svg
+      >Previous</a
+    >
+  {{ else }}
+    <button class="text-sm text-gray-400" disabled>
+      <span class="flex items-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-0.5"
+        >
+          <path d="m12 19-7-7 7-7"></path>
+          <path d="M19 12H5"></path></svg
+        >Previous</span
+      >
+    </button>
+  {{ end }}
+
+
+  <span class="text-sm text-gray-500"
+    >{{ .Paginator.PageNumber }} of {{ .Paginator.TotalPages }}</span
+  >
+
+  {{ if .Paginator.HasNext }}
+    <a
+      class="group flex items-center text-sm text-gray-600 transition-colors hover:text-gray-900"
+      href="{{ .Paginator.Next.URL }}"
+      rel="next"
+      >Next<svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5"
+      >
+        <path d="M5 12h14"></path>
+        <path d="m12 5 7 7-7 7"></path>
+      </svg>
+    </a>
+  {{ else }}
+    <button class="text-sm text-gray-400" disabled>
+      <span class="flex items-center"
+        >Next<svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5"
+        >
+          <path d="M5 12h14"></path>
+          <path d="m12 5 7 7-7 7"></path>
+        </svg>
+      </span>
+    </button>
+  {{ end }}
+</nav>

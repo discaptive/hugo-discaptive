@@ -1,0 +1,12 @@
+name = 'Hugo Discaptive'
+license = 'MIT'
+licenselink = 'https://github.com/discaptive/hugo-discaptive/blob/main/LICENSE'
+description = 'A simple light theme with TailwindCSS that supports full responsive.'
+homepage = 'https://github.com/discaptive/hugo-discaptive'
+demosite = 'https://discaptive.com'
+tags = ['blog', 'developer', 'tailwindcss', 'simple', 'light', 'responsive']
+features = ['responsive', 'easy', 'blog']
+
+[author]
+  name = 'Discaptive'
+  homepage = 'https://discaptive.com'

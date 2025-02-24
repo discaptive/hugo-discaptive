@@ -1,0 +1,12 @@
+# Hugo
+public/
+resources/
+.hugo_build.lock
+
+# Node.js
+node_modules/
+npm-debug.log
+
+# System
+.DS_Store
+Thumbs.db
