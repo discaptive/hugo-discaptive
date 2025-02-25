@@ -8,11 +8,7 @@ Inspired by [tailwind-nextjs-starter-blog](https://github.com/timlrx/tailwind-ne
 
 In real usage: [discaptive.com](https://discaptive.com)
 
-![1](images/1.png)
-
-![2](images/2.png)
-
-![3](images/3.png)
+![screenshot](images/screenshot.png)
 
 ## Installation
 
