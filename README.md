@@ -38,6 +38,10 @@ Add `hugo-discaptive` module as a dependency of your site:
 
     $ hugo mod get github.com/discaptive/hugo-discaptive
 
+To update module
+
+    $ hugo mod get -u
+
 ### Site preview
 
 Copy the content of `exampleSite` at the root of your project:
