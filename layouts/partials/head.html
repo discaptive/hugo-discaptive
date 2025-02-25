@@ -1,4 +1,4 @@
-{{ $title := site.Title }}
+{{ $title := .Title | default site.Title }}
 {{ $description := .Summary | default .Content }}
 {{ $image := printf "%s%s" .Site.BaseURL "images/og-image.png" }}
 
