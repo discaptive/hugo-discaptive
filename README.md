@@ -6,7 +6,7 @@ Inspired by [tailwind-nextjs-starter-blog](https://github.com/timlrx/tailwind-ne
 
 ## Overview
 
-In real usage: [discaptive.com](https://discaptive.com)
+~~In real usage: [discaptive.com](https://discaptive.com)~~
 
 ![screenshot](https://raw.githubusercontent.com/discaptive/hugo-discaptive/main/images/screenshot.png)
 
